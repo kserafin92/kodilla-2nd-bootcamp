@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'net.bytebuddy:byte-buddy:1.14.15'
+    implementation 'net.bytebuddy:byte-buddy-agent:1.14.15'
+}
+
+jar {
+    manifest {
+        attributes(
+                "Premain-Class": 'com.kodilla.agent.Agent',
+                "Can-Redefine-Classes": "true",
+                "Can-Retransform-Classes": "true"
+        )
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
