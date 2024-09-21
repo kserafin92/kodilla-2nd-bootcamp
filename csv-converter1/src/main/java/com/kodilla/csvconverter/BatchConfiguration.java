@@ -24,13 +24,12 @@ import org.springframework.core.io.FileSystemResource;
 import org.springframework.transaction.PlatformTransactionManager;
 
 @Configuration
-@EnableBatchProcessing
 public class BatchConfiguration {
 
     private final JobRepository jobRepository;
     private final PlatformTransactionManager transactionManager;
 
-    public BatchConfiguration(JobRepository jobRepository, PlatformTransactionManager transactionManager) {
+     BatchConfiguration(JobRepository jobRepository, PlatformTransactionManager transactionManager) {
         this.jobRepository = jobRepository;
         this.transactionManager = transactionManager;
     }
