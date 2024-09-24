@@ -17,7 +17,7 @@ public class RangeValidator implements ConstraintValidator<Range, Integer> {
     @Override
     public boolean isValid(Integer value, ConstraintValidatorContext context) {
         if (value == null) {
-            return true; // Nie traktuj pustej wartości jako błędnej
+            return true;
         }
         return value >= min && value <= max;
     }
