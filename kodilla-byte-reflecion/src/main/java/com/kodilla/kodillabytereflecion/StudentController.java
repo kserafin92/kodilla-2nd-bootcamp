@@ -3,7 +3,7 @@ package com.kodilla.kodillabytereflecion;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
+import jakarta.validation.constraints.NotNull;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,8 +13,8 @@ public class StudentController {
 
     @GetMapping("/students")
     public Map<Integer, String> generateStudents(
-            @RequestParam(defaultValue = "20") int n,
-            @RequestParam(defaultValue = "10") int z) {
+            @RequestParam(defaultValue = "20") @Range(min = 1, max = 100) int n,
+            @RequestParam(defaultValue = "10") @Range(min = 5, max = 50) int z) {
 
         Map<Integer, String> resultMap = new HashMap<>();
 
@@ -35,4 +35,3 @@ public class StudentController {
         return resultMap;
     }
 }
-
